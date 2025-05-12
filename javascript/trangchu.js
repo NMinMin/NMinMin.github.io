@@ -231,4 +231,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
     cart = savedCart ? JSON.parse(savedCart) : [];
     updateCartCount();
-  }
+  }});
