@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Thành viên</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/NMinMin/Image/refs/heads/main/z6593266591621_7e630df8aecd9967d6d82f116a73cbd1.jpg" type="image/png">
   <style>
     body {
       font-family: sans-serif;
@@ -11,6 +12,39 @@
       padding: 20px;
       overflow-x: hidden;
     }
+    header {
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;  /* Giữ thanh menu cố định */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  /* Đảm bảo menu luôn nằm trên các phần tử khác */
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
     .member-container {
       display: flex;
       flex-wrap: wrap;
@@ -22,7 +56,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       overflow: hidden;
-      width: 220px;
+      width: 500px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .member-card img {
@@ -81,7 +115,7 @@
 
 <div class="member-container">
   <div class="member-card">
-    <img src="https://i.imgur.com/xYC4HZn.png" alt="Thành viên 1">
+    <img src="https://github.com/NMinMin/Image/blob/main/z5800677691901_31e4381a1ba3cab1e27687afce56157f.jpg?raw=true" alt="Thành viên 1">
     <div class="info">
       <h3>Võ Nhạc Phước</h3>
       <p>Leader - Dev</p>
