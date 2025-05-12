@@ -32,20 +32,35 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
 
   const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  // Check nếu username đã tồn tại
-  if (users.find(u => u.username === username)) {
-    alert('Tài khoản đã tồn tại!');
-    return;
+  try {
+    const response = await fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const result = await response.text();
+
+    if (result === 'EXISTS') {
+      alert('Tài khoản đã tồn tại!');
+    } else if (result === 'SUCCESS') {
+      alert('Đăng ký thành công!');
+      document.getElementById('registerForm').reset();
+    
+      // Trượt về login
+      container.classList.remove("right-panel-active");
+      document.getElementById('registerForm').reset();
+      container.classList.remove("right-panel-active");
+    } else {
+      alert('Có lỗi xảy ra. Vui lòng thử lại.');
+    }
+
+  } catch (error) {
+    console.error('Error!', error.message);
+    alert('Lỗi kết nối với Google Sheets.');
   }
-
-  users.push({ username, email, password });
-  localStorage.setItem('users', JSON.stringify(users));
-
-  alert('Đăng ký thành công!');
-  document.getElementById('registerForm').reset();
-
-  // Trượt về login
-container.classList.remove("right-panel-active");
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
