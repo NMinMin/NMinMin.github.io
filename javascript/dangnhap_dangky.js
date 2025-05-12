@@ -1,17 +1,3 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // Thay bằng URL thật
-
-  fetch(scriptURL)
-    .then(response => response.json())
-    .then(data => {
-      localStorage.setItem('users', JSON.stringify(data));
-      console.log('Đã lấy danh sách tài khoản từ Google Sheets.');
-    })
-    .catch(error => {
-      console.error('Lỗi khi lấy dữ liệu từ Google Sheets:', error);
-    });
-});
-
 const container = document.getElementById('container');
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
@@ -32,35 +18,20 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
 
   const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  try {
-    const response = await fetch(scriptURL, {
-      method: 'POST',
-      body: JSON.stringify(user),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    const result = await response.text();
-
-    if (result === 'EXISTS') {
-      alert('Tài khoản đã tồn tại!');
-    } else if (result === 'SUCCESS') {
-      alert('Đăng ký thành công!');
-      document.getElementById('registerForm').reset();
-    
-      // Trượt về login
-      container.classList.remove("right-panel-active");
-      document.getElementById('registerForm').reset();
-      container.classList.remove("right-panel-active");
-    } else {
-      alert('Có lỗi xảy ra. Vui lòng thử lại.');
-    }
-
-  } catch (error) {
-    console.error('Error!', error.message);
-    alert('Lỗi kết nối với Google Sheets.');
+  // Check nếu username đã tồn tại
+  if (users.find(u => u.username === username)) {
+    alert('Tài khoản đã tồn tại!');
+    return;
   }
+
+  users.push({ username, email, password });
+  localStorage.setItem('users', JSON.stringify(users));
+
+  alert('Đăng ký thành công!');
+  document.getElementById('registerForm').reset();
+
+  // Trượt về login
+container.classList.remove("right-panel-active");
 });
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
