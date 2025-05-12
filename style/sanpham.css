@@ -67,7 +67,6 @@ header nav ul li a {
 
 .hero-slider-container {
   display: flex;
-  margin-top: 110px;
   transition: transform 0.5s ease;
 }
 
