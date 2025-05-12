@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 50px;
+   
+}
+
+header {
+    background-color: white;
+    color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;  /* Giữ thanh menu cố định */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;  /* Đảm bảo menu luôn nằm trên các phần tử khác */
+}
+
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: first baseline;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.hero-slider {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.hero-slider-container {
+  display: flex;
+  margin-top: 110px;
+  transition: transform 0.5s ease;
+}
+
+.hero-slider-container img {
+  width: 100vw;
+  height: 769px;
+  object-fit: cover;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#cart-link {
+  position: relative;
+}
+
+#cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    display: flex;             /* NEW */
+  flex-direction: column;    /* NEW */
+  justify-content: space-between; /* NEW */
+  min-height: 460px;   
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  
+  
+}
+
+.product-card img {
+    width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 18px;
+  color: #333;
+}
+
+.product-card p {
+    color: #777;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 8px 0;
+}
+.rating svg {
+    width: 40px;
+    height: 40px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+
+  /* Thêm hiệu ứng xuất hiện */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Khi hiển thị */
+.product-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.add-to-cart-btn {
+  background-color: #3f2b96;
+border: none;
+border-radius: 50px; /* Tạo các góc tròn */
+color: white;
+font-size: 15px;
+font-weight: bold;
+padding: 15px 30px;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-to-cart-btn svg {
+    width: 30px; /* Tùy chỉnh kích thước icon */
+    height: 30px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #302173;
+    transform: translateY(-4px); /* Hiệu ứng nhấc nút lên khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Tăng bóng đổ khi hover */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  position: relative;
+  margin-top: 30px;
+ 
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
