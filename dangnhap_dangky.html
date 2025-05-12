@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Register</title>
+  <link rel="stylesheet" href="./style/dangnhap_dangky.css">
+</head>
+<body>
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form id="registerForm">
+      <h1>Đăng Ký</h1>
+      <input type="text" placeholder="Username" id="regUsername" required />
+      <input type="email" placeholder="Email" id="regEmail" required />
+      <input type="password" placeholder="Password" id="regPassword" required />
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <div class="form-container sign-in-container">
+    <form id="loginForm">
+      <h1>Đăng Nhập</h1>
+      <input type="text" placeholder="Username" id="loginUsername" required />
+      <input type="password" placeholder="Password" id="loginPassword" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>Đã có tài khoản?</p>
+        <button class="ghost" id="signIn">Login</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Welcome!</h1>
+        <p>Bạn không có tài khoản?</p>
+        <button class="ghost" id="signUp">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./javascript/dangnhap_dangky.js"></script>
+</body>
+</html>
