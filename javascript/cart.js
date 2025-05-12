@@ -104,19 +104,3 @@ if (logoutLink) {
         window.location.href = 'trangchu.html'; // Chuyển về trang chủ sau khi đăng xuất
     });
 }
-
-//hien thi ten user
-document.addEventListener('DOMContentLoaded', () => {
-  if (currentUser) {
-    const navLinks = document.querySelectorAll('header nav ul li a');
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === 'dangnhap_dangky.html') {
-        link.textContent = `Xin chào, ${currentUser.name}`;
-      }
-    });
-
-    const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
-    cart = savedCart ? JSON.parse(savedCart) : [];
-    updateCartCount();
-  }});
-
