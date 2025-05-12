@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sản phẩm</title>
+    <link rel="stylesheet" href="./style/sanpham.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Cửa hàng Đồ ăn & Đồ uống</div>
+        <nav>
+          <ul>
+            <li><a href="trangchu.html">Trang Chủ</a></li>
+            <li><a href="sanpham.html">Sản phẩm</a></li>
+            <li><a href="dangnhap_dangky.html">Tài Khoản</a></li>
+            <li>
+              <a href="giohang.html" id="cart-link">
+                🛒 Giỏ Hàng <span id="cart-count">0</span>
+              </a>
+            </li>
+            <li id="logout-link"  style="margin-top: 4px;"><a href="#">Đăng xuất</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Poster video -->
+  <section style="width: 100%; overflow: hidden;">
+    <video autoplay loop muted playsinline style="width: 100%; height: auto;">
+      <source src="./video_poster/PIZZA.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+    <h1 class="title" style="margin-top: 10px;">Đồ uống | Đồ ăn</h1>
+    <section>
+        <h2 style="margin-left: 20px; margin-top: 10px;">Đồ uống</h2>
+        <div class="product-container" id="do-uong"></div>
+    </section>
+
+    <section>
+        <h2 style="margin-left: 20px; margin-top: 90px;">Đồ ăn</h2>
+        <div class="product-container" id="do-an"></div>
+    </section>
+    <!-- Poster giới thiệu sản phẩm mới -->
+  <section class="hero-slider">
+    <div id="hero-slider-container" class="hero-slider-container">
+      <!-- Ảnh sản phẩm sẽ được JS đổ vào đây -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cửa hàng Đồ ăn & Đồ uống</p>
+  </footer>
+
+    <script src="./javascript/sanpham.js"></script>
+</body>
+</html>
