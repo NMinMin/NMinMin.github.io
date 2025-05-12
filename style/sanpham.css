@@ -58,6 +58,7 @@ header nav ul li a {
     justify-content: first baseline;
     margin-left: 100px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .hero-slider {
   width: 100%;
