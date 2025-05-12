@@ -213,7 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutLink) {
         logoutLink.addEventListener('click', () => {
             localStorage.removeItem('currentUser');
-            alert('Đã đăng xuất.');
             window.location.href = 'dangnhap_dangky.html';
         });
     }
