@@ -1,3 +1,17 @@
+window.addEventListener('DOMContentLoaded', () => {
+  const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'; // Thay bằng URL thật
+
+  fetch(scriptURL)
+    .then(response => response.json())
+    .then(data => {
+      localStorage.setItem('users', JSON.stringify(data));
+      console.log('Đã lấy danh sách tài khoản từ Google Sheets.');
+    })
+    .catch(error => {
+      console.error('Lỗi khi lấy dữ liệu từ Google Sheets:', error);
+    });
+});
+
 const container = document.getElementById('container');
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
