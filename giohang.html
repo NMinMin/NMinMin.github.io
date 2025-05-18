@@ -51,6 +51,7 @@
   <script>
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     document.addEventListener('DOMContentLoaded', function () {
+        
         // Khai báo và khởi tạo cart ngay từ đầu
         let cart = JSON.parse(localStorage.getItem(`cart_${currentUser.email}`)) || [];
         const cartItemsContainer = document.getElementById('cart-items');
@@ -131,7 +132,20 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
                     alert("Lỗi khi gửi email: " + err.text);
                 });
         });
+        const navLinks = document.querySelectorAll('header nav ul li a');
 
+        if (currentUser) {
+            navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#account') {
+                link.textContent = `Xin chào, ${currentUser.name}`;
+            }
+            });
+
+            // 👉 Load cart của user từ localStorage
+            const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
+            cart = savedCart ? JSON.parse(savedCart) : [];
+            updateCartCount();
+        }
         const logoutLink = document.getElementById('logout-link');
         if (logoutLink) {
             logoutLink.addEventListener('click', () => {
