@@ -100,10 +100,11 @@ header nav ul li a {
     <div class="logo">Cửa hàng SixForce</div>
     <nav>
       <ul>
-        <li><a href="trangchu.html">Trang Chủ</a></li>
-        <li><a href="sanpham.html">Sản phẩm</a></li>
-        <li><a href="thanhvien.html">Thành viên</a></li>
-        <li id="logout-link"><a href="#">Đăng xuất</a></li>
+            <li style="margin-top: 4px;"><a href="trangchu.html">Trang Chủ</a></li>
+            <li style="margin-top: 4px;"><a href="sanpham.html">Sản phẩm</a></li>
+            <li style="margin-top: 4px;"><a href="thanhvien.html">Thành viên</a></li>
+            <li style="margin-top: 4px;"><a href="dangnhap_dangky.html">Tài Khoản</a></li>
+        <li id="logout-link" style="margin-top: 4px;"><a href="#">Đăng xuất</a></li>
       </ul>
     </nav>
   </header>
@@ -175,6 +176,31 @@ header nav ul li a {
       <a href="">Portfolio của Luân</a>
     </div>
   </div>
-  
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('header nav ul li a');
+
+  if (currentUser) {
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#account') {
+        link.textContent = `Xin chào, ${currentUser.name}`;
+      }
+    });
+
+    // 👉 Load cart của user từ localStorage
+    const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
+    cart = savedCart ? JSON.parse(savedCart) : [];
+    updateCartCount();
+  }
+  const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            alert('Đã đăng xuất.');
+            window.location.href = 'dangnhap_dangky.html';
+        });
+    }
+});
+</script>
 </body>
 </html>
