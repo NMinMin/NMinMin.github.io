@@ -17,9 +17,9 @@
     <div class="logo">Cửa hàng Đồ ăn & Đồ uống</div>
     <nav>
       <ul>
-        <li><a href="trangchu.html">Trang Chủ</a></li>
-        <li><a href="sanpham.html">Sản phẩm</a></li>
-        <li><a>Tài Khoản</a></li>
+        <li><a href="#home">Trang Chủ</a></li>
+        <li><a href="#products">Sản phẩm</a></li>
+        <li><a href="#account">Tài Khoản</a></li>
         <li>
           <a href="giohang.html" id="cart-link">
             🛒 Giỏ Hàng <span id="cart-count">0</span>
@@ -160,18 +160,6 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
         }
 
         const accountLink = document.getElementById('account-link');
-        if (currentUser) {
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === '#account') {
-              link.textContent = `Xin chào, ${currentUser.name}`;
-            }
-          });
-      
-          // 👉 Load cart của user từ localStorage
-          const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
-          cart = savedCart ? JSON.parse(savedCart) : [];
-          updateCartCount();
-        }
         if (accountLink) {
             accountLink.addEventListener('click', () => {
                 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
