@@ -149,3 +149,87 @@ header nav ul li a {
   background-color: rgb(196, 24, 24); /* Màu đậm hơn khi hover */
 }
 
+@media (max-width: 1024px) {
+  header nav ul li {
+    margin-left: 10px;
+  }
+
+  .cart-section {
+    margin: 80px 20px 30px;
+    padding: 15px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cart-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .checkout-form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  header .logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  .cart-item {
+    padding: 10px 0;
+  }
+
+  .cart-summary {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .checkout-form input,
+  .checkout-form button {
+    font-size: 15px;
+  }
+
+  #cart-count {
+    top: -6px;
+    right: -8px;
+    font-size: 11px;
+    padding: 1px 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .checkout-form {
+    padding: 0 10px;
+  }
+
+  .checkout-form button {
+    padding: 12px;
+  }
+}
