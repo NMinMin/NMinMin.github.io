@@ -156,3 +156,64 @@ button:hover {
   background: transparent;
   border: 1px solid #fff;
 }
+/* Responsive cho tablet và điện thoại */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    min-height: 650px;
+  }
+
+  form {
+    padding: 0 30px;
+  }
+
+  .overlay-panel {
+    padding: 0 20px;
+  }
+
+  input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 10px 30px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    min-height: auto;
+    height: auto;
+  }
+
+  .form-container,
+  .sign-in-container,
+  .sign-up-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+
+  .overlay-container {
+    display: none; /* Ẩn phần overlay để tiết kiệm không gian */
+  }
+
+  form {
+    padding: 40px 20px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 15px;
+    width: 100%;
+  }
+}
