@@ -177,25 +177,6 @@ header nav ul li a {
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 15px;
-  }
-
-  header .logo {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  header nav ul li {
-    margin: 10px 0;
-  }
 
   .cart-item {
     padding: 10px 0;
