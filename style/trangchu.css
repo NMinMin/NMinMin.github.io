@@ -87,8 +87,10 @@ header nav ul li a {
 
 .products-container {
   display: flex;
-  justify-content:first baseline;
   flex-wrap: wrap;
+  justify-content: center; /* Canh giữa toàn bộ row */
+  gap: 20px;               /* Khoảng cách nhất quán giữa các thẻ */
+  padding: 0 10px;         /* Khoảng đệm 2 bên */
 }
 
 .product-card {
@@ -212,4 +214,66 @@ footer p {
 .product-card.visible {
   opacity: 1;
   transform: translateY(0); /* Khi xuất hiện, sản phẩm sẽ ở vị trí ban đầu */
+}
+/* ============================
+   2. BỐN THIẾT LẬP CHO .product-card
+   ============================ */
+/* Desktop (>=1200px): 5 thẻ / hàng */
+@media (min-width: 1200px) {
+  .product-card {
+    flex: 1 1 calc((100% - 4 * 20px) / 5);
+    max-width: calc((100% - 4 * 20px) / 5);
+  }
+}
+
+/* Laptop / small desktop (>=992px và <1200px): 4 thẻ / hàng */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product-card {
+    flex: 1 1 calc((100% - 3 * 20px) / 4);
+    max-width: calc((100% - 3 * 20px) / 4);
+  }
+}
+
+/* Tablet (>=768px và <992px): 3 thẻ / hàng */
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-card {
+    flex: 1 1 calc((100% - 2 * 20px) / 3);
+    max-width: calc((100% - 2 * 20px) / 3);
+  }
+}
+
+/* Smartphone ngang (>=576px và <768px): 2 thẻ / hàng */
+@media (min-width: 576px) and (max-width: 767px) {
+  .product-card {
+    flex: 1 1 calc((100% - 1 * 20px) / 2);
+    max-width: calc((100% - 1 * 20px) / 2);
+  }
+}
+
+/* Smartphone dọc (<576px): 1 thẻ / hàng */
+@media (max-width: 575px) {
+  .product-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* ============================
+   3. ĐIỀU CHỈNH HERO-SLIDER CHO NHŨN KÍCH CỠ
+   ============================ */
+/* Giảm chiều cao slider khi màn hình nhỏ */
+@media (max-width: 767px) {
+  .hero-slider-container img {
+    height: 300px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-slider-container img {
+    height: 400px;
+  }
+}
+@media (min-width: 992px) {
+  .hero-slider-container img {
+    height: 600px;
+  }
 }
