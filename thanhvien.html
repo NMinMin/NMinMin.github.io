@@ -258,13 +258,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const logoutLink = document.getElementById('logout-link');
     if (logoutLink) {
-        logoutLink.addEventListener('click', () => {
-            localStorage.removeItem('currentUser');
-            alert('Đã đăng xuất.');
-            window.location.href = 'dangnhap_dangky.html';
-        });
+      logoutLink.addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        window.location.href = 'dangnhap_dangky.html';
+      });
     }
-});
+  });
+
+  function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cart.length;
+  }
   </script>
 </body>
 </html>
