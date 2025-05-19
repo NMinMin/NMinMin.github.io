@@ -160,6 +160,18 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
         }
 
         const accountLink = document.getElementById('account-link');
+        if (currentUser) {
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#account') {
+              link.textContent = `Xin chào, ${currentUser.name}`;
+            }
+          });
+      
+          // 👉 Load cart của user từ localStorage
+          const savedCart = localStorage.getItem(`cart_${currentUser.email}`);
+          cart = savedCart ? JSON.parse(savedCart) : [];
+          updateCartCount();
+        }
         if (accountLink) {
             accountLink.addEventListener('click', () => {
                 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
