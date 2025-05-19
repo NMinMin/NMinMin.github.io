@@ -75,7 +75,22 @@ setTimeout(() => productCard.classList.add('show'), 100);
 
     updateCartCount();
   });
+// ------------------ 3. HIỆU ỨNG CUỘN ------------------
+function isInView(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top <= window.innerHeight && rect.bottom >= 0;
+}
 
+function checkFadeIn() {
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  fadeInElements.forEach(element => {
+    if (isInView(element)) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkFadeIn);
 // ---- RENDER RATING
 function renderRating(element, rating) {
   const full = Math.floor(rating);
