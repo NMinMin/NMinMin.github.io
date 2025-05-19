@@ -151,14 +151,21 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
             cart = savedCart ? JSON.parse(savedCart) : [];
             updateCartCount();
         }
-        const logoutLink = document.getElementById('logout-link');
-        if (logoutLink) {
-            logoutLink.addEventListener('click', () => {
-                localStorage.removeItem('currentUser');
-                alert('Đã đăng xuất.');
-                window.location.href = 'dangnhap_dangky.html'; // Chuyển về trang chủ sau khi đăng xuất
-            });
-        }
+        // Xử lý nút đăng xuất
+    const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+      logoutLink.addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        alert('Đã đăng xuất.');
+        window.location.href = 'dangnhap_dangky.html';
+      });
+    }
+  });
+
+  function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = cart.length;
+  }
 
         const accountLink = document.getElementById('account-link');
         if (accountLink) {
