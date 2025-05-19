@@ -10,8 +10,6 @@ body {
   background-color: #f4f4f4;
   color: #333;    
   padding-top: 50px;  /* Thêm padding để không bị che nội dung dưới menu */
-  margin: 0;
-  overflow-x: hidden;
 }
 
 header {
