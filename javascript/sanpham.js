@@ -21,60 +21,60 @@ fetch('https://opensheet.elk.sh/15HwqsZC133Iiop7kwd-8R8pbdUewvLKjbJHJSnUUfzg/Tra
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 let cart = JSON.parse(localStorage.getItem(currentUser ? `cart_${currentUser.email}` : 'cart')) || [];
 
+// ------------------ 2. HIỂN THỊ SẢN PHẨM NỔI BẬT + RATING ------------------
 fetch('https://opensheet.elk.sh/1nV1tWbJoCXbWgICD0tuF8psj0uOHvNQPw1nSvXG_igQ/Trang%20t%C3%ADnh1')
   .then(res => res.json())
   .then(products => {
     const drinksContainer = document.getElementById('do-uong');
     const foodsContainer = document.getElementById('do-an');
 
-    function formatCurrency(amount) {
-      const number = parseFloat(amount);
-      if (isNaN(number)) return amount;
-      return number.toLocaleString('vi-VN');
-    }
-
-    const filteredProducts = products.filter(p => p.phanloai === "Đồ uống" || p.phanloai === "Đồ ăn");
-
-    filteredProducts.forEach(product => {
+    products.forEach(product => {
       const productCard = document.createElement('div');
-productCard.classList.add('product-card');
-setTimeout(() => productCard.classList.add('show'), 100);
+      productCard.classList.add('product-card', 'fade-in');
+      // Hàm định dạng giá
+    function formatCurrency(amount) {
+      // Chuyển đổi giá trị thành số (nếu chưa phải là số)
+      const number = parseFloat(amount);
+      
+      // Kiểm tra xem giá trị có hợp lệ không
+      if (isNaN(number)) return amount;
 
-
-      productCard.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <div class="product-info">
-          <h3>${product.name}</h3>
-          <p>${product.description}</p>
-          <div class="rating" data-rating="${product.rating}"></div>
-          <p class="price"><strong>Giá:</strong> ${formatCurrency(product.price)} VND</p>
-          <p><strong>Đã bán:</strong> ${product.sales}</p>
-          <button class="add-to-cart-btn buy-button" data-id="${product.id}">🛒 Mua ngay</button>
-        </div>
-      `;
-
-      if (product.phanloai === "Đồ uống") {
-        drinksContainer.appendChild(productCard);
-      } else if (product.phanloai === "Đồ ăn") {
-        foodsContainer.appendChild(productCard);
-      }
+      return number.toLocaleString('vi-VN');  // Định dạng theo kiểu Việt Nam (1,000,000)
+    }
+    // Sửa lại phần HTML của sản phẩm
+    productCard.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <div class="rating" data-rating="${product.rating}"></div>
+        <p class="price"><strong>Giá:</strong> ${formatCurrency(product.price)} VND</p>  <!-- Hiển thị giá định dạng -->
+        
+        <p><strong>Đã bán:</strong> ${product.sales}</p>
+        <button class="add-to-cart-btn" data-id="${product.id}">
+          <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed">
+            <path d="M280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z"/>
+          </svg>Mua ngay
+        </button>
+      </div>
+    `;
+      
+    if(product.phanloai=="Đồ uống"){
+      drinksContainer.appendChild(productCard);}
+      else {foodsContainer.appendChild(productCard);}
 
       renderRating(productCard.querySelector(".rating"), parseFloat(product.rating));
     });
-
+    // Gắn sự kiện Thêm vào giỏ hàng
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const productId = btn.getAttribute('data-id');
-        if (!currentUser) {
-          alert("Vui lòng đăng nhập để thêm vào giỏ hàng!");
-          return;
-        }
         addToCart(productId);
+        
       });
     });
 
-    updateCartCount();
-     checkFadeIn(); // Check hiệu ứng khi render xong sản phẩm
+    checkFadeIn(); // Check hiệu ứng khi render xong sản phẩm
   });
 // ------------------ 3. HIỆU ỨNG CUỘN ------------------
 function isInView(element) {
