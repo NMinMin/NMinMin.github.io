@@ -1,16 +1,15 @@
+/* Reset mặc định cho các phần tử */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding-top: 50px;
-   
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;    
+  padding-top: 50px;  /* Thêm padding để không bị che nội dung dưới menu */
 }
 
 header {
@@ -46,10 +45,7 @@ header nav ul li a {
   text-decoration: none;
   font-size: 16px;
 }
-.title {
-    text-align: center;
-    margin-bottom: 30px;
-}
+
 .hero-slider {
   width: 100%;
   overflow: hidden;
@@ -68,21 +64,21 @@ header nav ul li a {
   cursor: pointer;
   flex-shrink: 0;
 }
-
 #cart-link {
-  position: relative;
+      position: relative;
 }
 
 #cart-count {
-  background: red;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  position: absolute;
-  top: -8px;
-  right: -10px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+      position: absolute;
+      top: -8px;
+      right: -10px;
 }
+
 .products-section {
   padding: 40px 20px;
   background-color: #fff;
@@ -138,17 +134,57 @@ header nav ul li a {
   margin: 10px 0;
 }
 
-.rating {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    margin: 8px 0;
-}
-.rating svg {
-    width: 40px;
-    height: 40px;
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
 }
 
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+.rating svg {
+  width: 40px;
+  height: 40px;
+}
+
+
+.add-to-cart-btn {
+    background-color: #3f2b96;
+  border: none;
+  border-radius: 50px; /* Tạo các góc tròn */
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;           /* Sử dụng flexbox để căn chỉnh */
+    align-items: center;     /* Căn giữa nội dung theo chiều dọc */
+    justify-content: center; /* Căn giữa nội dung theo chiều ngang */
+    gap: 8px;                /* Thêm khoảng cách giữa icon và chữ */
+    margin-top: auto; /* đẩy nút xuống dưới cùng */
+}
+
+.add-to-cart-btn svg {
+    width: 30px; /* Tùy chỉnh kích thước icon */
+    height: 30px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #302173;
+    transform: translateY(-4px); /* Hiệu ứng nhấc nút lên khi hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Tăng bóng đổ khi hover */
+}
 /* Hiệu ứng khi cuộn */
 .fade-in {
   opacity: 0;
@@ -174,121 +210,70 @@ header nav ul li a {
   transform: translateY(50px); /* Di chuyển sản phẩm xuống dưới */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .product-card.visible {
   opacity: 1;
   transform: translateY(0); /* Khi xuất hiện, sản phẩm sẽ ở vị trí ban đầu */
 }
-.add-to-cart-btn {
-  background-color: #3f2b96;
-border: none;
-border-radius: 50px; /* Tạo các góc tròn */
-color: white;
-font-size: 15px;
-font-weight: bold;
-padding: 15px 30px;
-cursor: pointer;
-transition: all 0.3s ease;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.add-to-cart-btn svg {
-    width: 30px; /* Tùy chỉnh kích thước icon */
-    height: 30px;
-}
-
-.add-to-cart-btn:hover {
-    background-color: #302173;
-    transform: translateY(-4px); /* Hiệu ứng nhấc nút lên khi hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Tăng bóng đổ khi hover */
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  position: relative;
-  margin-top: 30px;
- 
-}
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-/* Thiết bị nhỏ (điện thoại dưới 768px) */
-@media (max-width: 767px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  header nav ul {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  header nav ul li {
-    margin: 10px 0;
-  }
-
-  .hero-slider-container img {
-    height: 250px; /* Rút gọn chiều cao ảnh */
-  }
-
-  .product-container {
-    flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
-    gap: 15px;
-  }
-
+/* ============================
+   2. BỐN THIẾT LẬP CHO .product-card
+   ============================ */
+/* Desktop (>=1200px): 5 thẻ / hàng */
+@media (min-width: 1200px) {
   .product-card {
-    width: 100%;
-    min-height: auto;
-  }
-
-  .rating svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .add-to-cart-btn {
-    font-size: 14px;
-    padding: 10px 20px;
+    flex: 1 1 calc((100% - 4 * 20px) / 5);
+    max-width: calc((100% - 4 * 20px) / 5);
   }
 }
 
-/* Thiết bị trung bình (iPad, tablet ngang từ 768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
+/* Laptop / small desktop (>=992px và <1200px): 4 thẻ / hàng */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product-card {
+    flex: 1 1 calc((100% - 3 * 20px) / 4);
+    max-width: calc((100% - 3 * 20px) / 4);
   }
+}
 
+/* Tablet (>=768px và <992px): 3 thẻ / hàng */
+@media (min-width: 768px) and (max-width: 991px) {
+  .product-card {
+    flex: 1 1 calc((100% - 2 * 20px) / 3);
+    max-width: calc((100% - 2 * 20px) / 3);
+  }
+}
+
+/* Smartphone ngang (>=576px và <768px): 2 thẻ / hàng */
+@media (min-width: 576px) and (max-width: 767px) {
+  .product-card {
+    flex: 1 1 calc((100% - 1 * 20px) / 2);
+    max-width: calc((100% - 1 * 20px) / 2);
+  }
+}
+
+/* Smartphone dọc (<576px): 1 thẻ / hàng */
+@media (max-width: 575px) {
+  .product-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* ============================
+   3. ĐIỀU CHỈNH HERO-SLIDER CHO NHŨN KÍCH CỠ
+   ============================ */
+/* Giảm chiều cao slider khi màn hình nhỏ */
+@media (max-width: 767px) {
+  .hero-slider-container img {
+    height: 300px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
   .hero-slider-container img {
     height: 400px;
   }
-
-  .product-container {
-    justify-content: center;
-    margin-left: 20px;
-    margin-right: 20px;
-    gap: 20px;
-  }
-
-  .product-card {
-    width: 45%;
-  }
-
-  .rating svg {
-    width: 32px;
-    height: 32px;
-  }
-
-  .add-to-cart-btn {
-    font-size: 15px;
-    padding: 12px 24px;
+}
+@media (min-width: 992px) {
+  .hero-slider-container img {
+    height: 600px;
   }
 }
