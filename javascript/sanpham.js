@@ -74,6 +74,7 @@ setTimeout(() => productCard.classList.add('show'), 100);
     });
 
     updateCartCount();
+     checkFadeIn(); // Check hiệu ứng khi render xong sản phẩm
   });
 // ------------------ 3. HIỆU ỨNG CUỘN ------------------
 function isInView(element) {
