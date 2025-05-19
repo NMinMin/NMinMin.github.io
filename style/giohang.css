@@ -150,9 +150,6 @@ header nav ul li a {
 }
 
 @media (max-width: 1024px) {
-  header nav ul li {
-    margin-left: 10px;
-  }
 
   .cart-section {
     margin: 80px 20px 30px;
