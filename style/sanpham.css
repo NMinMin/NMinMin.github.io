@@ -85,12 +85,13 @@ header nav ul li a {
   text-align: center;
 }
 
+/* ==== 1. Container chung ==== */
 .products-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Canh giữa toàn bộ row */
-  gap: 20px;               /* Khoảng cách nhất quán giữa các thẻ */
-  padding: 0 10px;         /* Khoảng đệm 2 bên */
+  justify-content: center;
+  gap: 20px;
+  padding: 0 10px;
 }
 
 .product-card {
@@ -104,7 +105,7 @@ header nav ul li a {
 
   display: flex;             /* NEW */
   flex-direction: column;    /* NEW */
-  justify-content: space-between; /* NEW */
+  justify-content: flex-start; /* theo chiều dọc */
   min-height: 460px;         /* Tùy chỉnh chiều cao tối thiểu */
 
   opacity: 0;
@@ -120,7 +121,11 @@ header nav ul li a {
 }
 
 .product-card .product-info {
+  flex: 1;                   /* đây là khác biệt chính */
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .product-card .product-info h3 {
@@ -172,7 +177,7 @@ footer p {
     align-items: center;     /* Căn giữa nội dung theo chiều dọc */
     justify-content: center; /* Căn giữa nội dung theo chiều ngang */
     gap: 8px;                /* Thêm khoảng cách giữa icon và chữ */
-    margin-top: auto; /* đẩy nút xuống dưới cùng */
+  margin: 0 15px 15px;  
 }
 
 .add-to-cart-btn svg {
