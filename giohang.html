@@ -26,7 +26,7 @@
             🛒 Giỏ Hàng <span id="cart-count">0</span>
           </a>
         </li>
-        <li style="margin-top: 4px;"><a id="logout-link" href="#">Đăng xuất</a></li>
+        <li id="logout-link"  style="margin-top: 4px;"><a href="#">Đăng xuất</a></li>
       </ul>
     </nav>
   </header>
@@ -166,19 +166,14 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     const cartCountElement = document.getElementById('cart-count');
     cartCountElement.textContent = cart.length;
   }
-
-        const accountLink = document.getElementById('account-link');
-        if (accountLink) {
-            accountLink.addEventListener('click', () => {
-                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-                if (!currentUser) {
-                    window.location.href = 'dangnhap_dangky.html'; // Chuyển đến trang đăng nhập nếu chưa đăng nhập
-                } else {
-                    alert(`Bạn đang đăng nhập với tài khoản: ${currentUser.name}`);
-                    // Bạn có thể thêm hành động khác nếu người dùng đã đăng nhập
-                }
-            });
-        }
+const logoutLink = document.getElementById('logout-link');
+if (logoutLink) {
+  logoutLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    localStorage.removeItem('currentUser');
+    window.location.href = 'dangnhap_dangky.html';
+  });
+}
 
 function formatCurrency(amount) {
     return amount.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
