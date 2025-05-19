@@ -106,6 +106,61 @@ header nav ul li a {
       0% {opacity: 0; transform: translateY(30px);}
       100% {opacity: 1; transform: translateY(0);}
     }
+    @media (max-width: 1024px) {
+  .member-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .member-card img {
+    height: auto;
+    max-height: 400px;
+  }
+
+  .member-card h3 {
+    font-size: 16px;
+  }
+
+  .member-card p {
+    font-size: 13px;
+  }
+
+  header nav ul {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  header nav ul li {
+    margin: 10px 0 0 0;
+  }
+
+  .member-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .member-card {
+    width: 95%;
+    height: auto;
+  }
+
+  .member-card img {
+    max-height: 300px;
+  }
+}
+
   </style>
 </head>
 <body>
