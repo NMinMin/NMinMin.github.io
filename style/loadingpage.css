@@ -1,12 +1,13 @@
-body{
-    display: flex;
-    vertical-align: middle;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    padding-top: 18%;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
 }
+
 .loader {
     width: fit-content;
     height: fit-content;
