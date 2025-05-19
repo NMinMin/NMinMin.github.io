@@ -2,9 +2,10 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thành viên</title>
   <link rel="icon" href="https://raw.githubusercontent.com/NMinMin/Image/refs/heads/main/z6593266591621_7e630df8aecd9967d6d82f116a73cbd1.jpg" type="image/png">
-  <style>
+    <style>
     body {
   font-family: Arial, sans-serif;
       background: #f0f0f0;
@@ -145,9 +146,9 @@ header nav ul li a {
   </style>
 </head>
 <body>
- <!-- Header Section -->
+  <!-- Header Section -->
 <header class="header">
-    <div class="logo">Cửa hàng SixForce</div>
+    <div class="logo">Cửa hàng Đồ ăn & Đồ uống</div>
     <nav>
       <ul>
             <li style="margin-top: 4px;"><a href="trangchu.html">Trang Chủ</a></li>
@@ -163,7 +164,7 @@ header nav ul li a {
       </ul>
     </nav>
   </header>
-<h2 style="text-align: center;margin-top:100px; margin-bottom: 24px;">NHÓM SIXFORCE</h2>
+  <h2 style="text-align: center;margin-top:100px; margin-bottom: 24px;">NHÓM SIXFORCE</h2>
 
 <div class="member-container">
   <div class="member-card">
@@ -231,8 +232,16 @@ header nav ul li a {
       <a href="">Portfolio của Luân</a>
     </div>
   </div>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Cửa hàng Đồ ăn & Đồ uống</p>
+  </footer>
+
+  <script>
+    // ------------------ 7. XỬ LÝ TÀI KHOẢN ĐĂNG NHẬP ------------------
+    
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('header nav ul li a');
 
   if (currentUser) {
@@ -256,6 +265,6 @@ header nav ul li a {
         });
     }
 });
-</script>
+  </script>
 </body>
 </html>
