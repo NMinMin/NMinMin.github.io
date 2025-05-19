@@ -6,33 +6,13 @@
   <title>Thành viên</title>
   <link rel="icon" href="https://raw.githubusercontent.com/NMinMin/Image/refs/heads/main/z6593266591621_7e630df8aecd9967d6d82f116a73cbd1.jpg" type="image/png">
     <style>
-    html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-body {
+    body {
   font-family: Arial, sans-serif;
-  background: #f0f0f0;
-  padding: 20px;
-  overflow-x: hidden;
-
-  /* Thêm để bố trí flex */
-  min-height: 100vh;
-}
-
-/* Footer luôn nằm dưới cùng */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  /* Không cần thay đổi position, vì flex đã xử lý */
-}
-
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+    }
     #cart-link {
       position: relative;
 }
@@ -81,16 +61,23 @@ header nav ul li a {
   text-decoration: none;
   font-size: 16px;
 }
-    .member-container {
-  flex: 1; /* Cho phần nội dung chiếm hết khoảng không gian còn lại */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0;
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
 }
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+    .member-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
     .member-card {
       background: #fff;
       border-radius: 12px;
@@ -127,11 +114,6 @@ header nav ul li a {
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
     }
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
     @keyframes fadeInUp {
       0% {opacity: 0; transform: translateY(30px);}
       100% {opacity: 1; transform: translateY(0);}
@@ -241,7 +223,7 @@ footer p {
   </div>
   
   <div class="member-card">
-    <img src="https://github.com/VindWeen/Image/blob/main/nghia.jpg?raw=true" alt="Thành viên 5">
+    <img src="https://cdn.discordapp.com/attachments/933585209562116116/1371450104157835284/z6593754057450_debd3d5746c343957bc44be39471dffa.jpg?ex=68232df1&is=6821dc71&hm=71af30e6ef6fa47fc7e13a45d4efb81ac6a08ed0ab940b303a4f804e78c40949&" alt="Thành viên 5">
     <div class="info">
       <h3>Nguyễn Danh Nghĩa</h3>
       <p>Dev</p>
@@ -261,6 +243,7 @@ footer p {
       <a href="">Portfolio của Luân</a>
     </div>
   </div>
+</div>
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Cửa hàng Đồ ăn & Đồ uống</p>
