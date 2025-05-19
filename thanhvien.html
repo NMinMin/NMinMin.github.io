@@ -6,13 +6,33 @@
   <title>Thành viên</title>
   <link rel="icon" href="https://raw.githubusercontent.com/NMinMin/Image/refs/heads/main/z6593266591621_7e630df8aecd9967d6d82f116a73cbd1.jpg" type="image/png">
     <style>
-    body {
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
   font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
-    }
+  background: #f0f0f0;
+  padding: 20px;
+  overflow-x: hidden;
+
+  /* Thêm để bố trí flex */
+  min-height: 100vh;
+}
+
+/* Footer luôn nằm dưới cùng */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  /* Không cần thay đổi position, vì flex đã xử lý */
+}
+
     #cart-link {
       position: relative;
 }
@@ -62,11 +82,15 @@ header nav ul li a {
   font-size: 16px;
 }
     .member-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-    }
+  flex: 1; /* Cho phần nội dung chiếm hết khoảng không gian còn lại */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+}
     .member-card {
       background: #fff;
       border-radius: 12px;
@@ -103,12 +127,6 @@ header nav ul li a {
       animation: fadeInUp 1s ease forwards;
       opacity: 0;
     }
-      footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-}
 
 footer p {
   margin: 0;
