@@ -85,3 +85,65 @@ body{
       color: transparent;
     }
   }
+@media (max-width: 768px) {
+  body {
+    padding-top: 30%;
+    flex-direction: column;
+  }
+
+  .catbody {
+    width: 60px;
+  }
+
+  .tail {
+    width: 14px;
+  }
+
+  .wall {
+    width: 220px;
+  }
+
+  .text {
+    width: auto;
+    margin: 0 0 80px 90px;
+  }
+
+  .zzz {
+    font-size: 13px;
+  }
+
+  .bigzzz {
+    font-size: 20px;
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 40%;
+  }
+
+  .catbody {
+    width: 50px;
+  }
+
+  .tail {
+    width: 12px;
+  }
+
+  .wall {
+    width: 180px;
+  }
+
+  .text {
+    margin: 0 0 70px 70px;
+  }
+
+  .zzz {
+    font-size: 12px;
+  }
+
+  .bigzzz {
+    font-size: 16px;
+  }
+}
