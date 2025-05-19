@@ -177,7 +177,7 @@ footer p {
     align-items: center;     /* Căn giữa nội dung theo chiều dọc */
     justify-content: center; /* Căn giữa nội dung theo chiều ngang */
     gap: 8px;                /* Thêm khoảng cách giữa icon và chữ */
-  margin: 0 15px 15px;  
+   margin-top: auto;
 }
 
 .add-to-cart-btn svg {
