@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Charts</title>
+  <link rel="icon" type="image/x-icon" href="energy-efficiency.png">
+  <link rel="stylesheet" href="./style/home.css">  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="header" style="justify-content: space-between;display: flex;align-items: center;">
+    
+<div id="toggle-btn" style="margin-right:auto" >
+<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#ffffff"><path d="m234-480-12-60q-12-5-22.5-10.5T178-564l-58 18-40-68 46-40q-2-13-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T222-820l12-60h80l12 60q12 5 22.5 10.5T370-796l58-18 40 68-46 40q2 13 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T326-540l-12 60h-80Zm40-120q33 0 56.5-23.5T354-680q0-33-23.5-56.5T274-760q-33 0-56.5 23.5T194-680q0 33 23.5 56.5T274-600ZM592-40l-18-84q-17-6-31.5-14.5T514-158l-80 26-56-96 64-56q-2-18-2-36t2-36l-64-56 56-96 80 26q14-11 28.5-19.5T574-516l18-84h112l18 84q17 6 31.5 14.5T782-482l80-26 56 96-64 56q2 18 2 36t-2 36l64 56-56 96-80-26q-14 11-28.5 19.5T722-124l-18 84H592Zm56-160q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"/></svg></div>
+<div style="flex-grow: 1; text-align: center;">QUẢN LÝ CÔNG SUẤT TIÊU THỤ NĂNG LƯỢNG</div>
+    </div>
+  <div id="date-range-container" >
+    <label class="label">Select Date Range:</label>
+    <select class="input-date" id="preset">
+      <option value="custom">Custom</option>
+      <option value="today">Today</option>
+      <option value="last7" selected>Last 7 Days</option>
+    </select>
+
+    <label class="label">Start Date:</label>
+    <input type="text" id="start-date" class="input-date" placeholder="Start Date">
+
+    <label class="label">End Date:</label>
+    <input type="text" id="end-date" class="input-date" placeholder="End Date">
+
+    <label class="label">Time:</label>
+    <div class="time-wrapper">
+    <input type="time" id="start-time" class="time-picker" name="start-time">
+
+    <input type="time" class="time-picker" id="end-time" name="end-time">
+    </div>
+    <button id="apply-btn" class="apply-button" style="visibility: hidden; height: 0;">Apply</button>
+    <button id="download-excel-btn" class="apply-button" style="display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px; color: white;">
+  <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="white" id="icon">
+    <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+  </svg>
+  <span>Tải file Excel</span>
+</button>
+  </div>
+  <!------------------------------------------------------------------------------->
+  <div class="container">
+    <div class="card">
+      <h2 style="color:  #007BFF;;">Điện áp</h2>
+      <div id="chart1" class="chart"></div>
+      <div id="info1" class="info-card" style="background-color: #1B2431;font-weight: bold;border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 1.2em;
+      box-shadow: 0 0 12px rgba(0,123,255,0.3);"></div>
+    </div>
+
+    <div class="card">
+      <h2 style="color: #F3C623;">Dòng điện</h2>
+      <div id="chart2" class="chart"></div>
+      <div style="background-color: #1B2431;font-weight: bold;border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 1.2em;
+      box-shadow: 0 0 12px rgba(0,123,255,0.3);" id="info2" class="info-card"></div>
+    </div>
+
+    <div class="card">
+      <h2 style="color: #537D5D;">Công suất tiêu thụ</h2>
+      <div id="chart3" class="chart"></div>
+      <div style="background-color: #1B2431;font-weight: bold;border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 1.2em;
+      box-shadow: 0 0 12px rgba(0,123,255,0.3);" id="info3"></div>
+      <div style="background-color: #1B2431;font-weight: bold;border-radius: 12px;
+      padding: 8px 16px;
+      font-size: 1.2em;
+      box-shadow: 0 0 12px rgba(0,123,255,0.3);" id="info4" class="info-card"></div>
+    </div>
+  </div>
+
+  <div class="footer">© QUẢN LÝ CÔNG SUẤT TIÊU THỤ NĂNG LƯỢNG 2025</div>
+  <script src="./javascipt/home.js"></script>
+</body>
+</html>

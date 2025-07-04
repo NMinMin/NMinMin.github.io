@@ -1,0 +1,347 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.header {
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* ánh sáng trắng */
+  background-color: #2C3E50; /* hoặc gradient */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* hoặc tùy độ cao header */
+  z-index: 999;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* bóng đổ nhẹ */
+  text-align: center;
+  padding: 20px;
+  font-size: 32px;
+}
+#icon{
+  fill: white;
+  transition: transform 0.3s, filter 0.3s;
+}
+#icon:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px white);
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  flex: 1;
+  margin-top: 150px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  width: 100%;
+  max-width: 1550px;  /* nếu muốn giới hạn */
+  margin: 30px auto;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+}
+
+.chart {
+  height: 300px;
+}
+#info3{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #a5bce7;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: auto;
+  flex: 1 1 25%; /* chiếm 25% chiều ngang */
+  max-width: 200px;
+}
+#info1{
+  right: 20px;
+  top: 20px;
+  width: 150px;
+  background: #a5bce7;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+  flex: 1 1 25%; /* chiếm 25% chiều ngang */
+  max-width: 200px;
+}
+/* Giao diện desktop */
+#info2, #info4 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 150px;
+  background: #a5bce7;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.chart {
+  width: 87% !important;  /* đảm bảo chiều rộng full container */
+  height: 300px;           /* mặc định desktop */
+  max-width: 100%;         /* tránh tràn */
+  box-sizing: border-box;  /* tính padding và border trong kích thước */
+  flex: 1 1 70%; /* chiếm 70% chiều ngang */
+  min-width: 0;
+}
+#info1 > div, #info2 > div, #info4 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  margin-top: auto; /* đẩy xuống đáy */
+}
+
+
+.info-card {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 150px;
+  background: #a5bce7;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+#download-excel-btn:hover{
+  background-color: #4300FF;
+}
+ #date-range-container {
+ position: fixed;
+  top: -50px; /* nằm ngay dưới header */
+  z-index: 998; /* thấp hơn header 1 bậc */
+ max-height: 0;
+ max-width: 350px;
+ width: 100%;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+  border-radius:0 0 12px 0;
+  width: 350px;
+  margin: 20px auto;
+  margin-top: 150px;
+  padding: 0 12px; /* quan trọng */
+  background: #f9fbff;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1); /* ánh sáng xanh dịu */
+  border: 1px solid #dce8f5;
+  }
+    #date-range-container.show {
+  max-height: 500px; /* đủ lớn để chứa nội dung */
+}
+    .label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+    .input-date,select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    .time-picker,select {
+      width: 48%;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+    }
+    .apply-button {
+      width: 100%;
+      background: #a5bce7;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .apply-button:hover {
+      background:#a5bce7;
+    }
+    input[type="text"], select {
+  border: 1px solid #c7d8ee;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}#download-excel-btn {
+  background-color: 	#5B9BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}
+
+#download-excel-btn:hover {
+  background-color: #3D7BE0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+#toggle-btn svg {
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 2px white);
+  cursor: pointer;
+}
+
+#toggle-btn:hover svg {
+  filter: drop-shadow(0 0 6px white);
+  transform: scale(1.1); /* hơi phóng to nhẹ khi hover */
+}
+.time-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 600px) {
+  .header {
+    font-size: 24px;
+    padding: 15px 10px;
+    width: 100%;
+  }
+
+  .container {
+    padding: 10px;
+    width: 93%;
+  }
+
+  .card {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .info-card {
+    position: static; /* bỏ absolute để tránh tràn màn hình */
+    margin-top: 30px;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    width: calc(container);
+  }
+  #info1,#info3, #info2, #info4 {
+    position:static !important;
+    width: 100% !important;
+    background: #a5bce7;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+   #info1 > div, #info2 > div, #info4 > div {
+    justify-content: center;
+    margin-top: 5px;
+    flex-wrap: wrap;
+  }
+  .chart {
+    height: 200px !important; /* chiều cao nhỏ hơn trên điện thoại */
+  }
+  .footer {
+    font-size: 14px;
+    padding: 8px;
+  }
+  #date-range-container {
+  position: fixed;
+  top: 60px; /* nằm ngay dưới header 60px */
+  left: 0;
+  right: 0;
+  z-index: 998;
+  
+  width: 100%;
+  max-width: 350px;
+  margin: 0 0;
+  padding: 16px;
+  box-sizing: border-box;
+
+  background: #f9fbff;
+  box-shadow: 0 4px 16px rgba(0, 123, 255, 0.1);
+  border: 1px solid #dce8f5;
+  border-radius: 0 0 12px 0;
+
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+}
+#date-range-container.show {
+   max-height: 120vh; /* tự động theo chiều cao màn hình */
+  overflow-y: auto; /* thêm scroll nếu quá dài */
+}#download-excel-btn {
+  width: 100%;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+  .time-wrapper {
+  flex-direction: column;
+}
+.time-picker {
+  width: 100% !important;
+}
+}
+
+

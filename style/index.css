@@ -1,0 +1,144 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #0A192F;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 1200px;
+  height: 710px; 
+  background-color: #ffffff10; /* trắng mờ */
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow:    
+    0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+}
+
+.login-box {
+  display: flex;
+  width: 100%;
+}
+
+.left {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #F8F9FA;
+}
+
+.left h2 {
+  margin-bottom: 20px;
+}
+
+.left input {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 500px;
+  border-radius: 10px;
+  border: 1px solid #F2F2F2;
+}
+
+.left button {
+  display: flex;
+  justify-self: center;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: 	#F3C623;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+.left button:hover {
+  display: flex;
+  justify-self: center;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFA500;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+.right {
+  flex: 1;
+  background: #1E293B;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#error {
+  color: red;
+  margin-top: 10px;
+}
+/* MEDIA QUERIES CHO MÀN HÌNH NHỎ (ĐIỆN THOẠI) */
+@media (max-width: 768px) {
+  body {
+    height: auto;
+  }
+
+  .login-container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .login-box {
+    flex-direction: column;
+  }
+  .left{
+    flex: none;
+    width: calc(right);
+    padding: 20px;
+  }
+.left button {
+  display: flex;
+  justify-self: center;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: 	#F3C623;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+.left button:hover {
+  display: flex;
+  justify-self: center;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #FFA500;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+  .left input {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid #F4F6F9;
+  }
+}
